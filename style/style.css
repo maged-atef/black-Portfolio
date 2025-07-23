@@ -239,4 +239,9 @@ cursor: pointer;
     display: none;
    
 }
+@media screen  and (max-width: 600px) {
+   .img-content{ 
+    width: 100%;
+}
+}
 }
