@@ -197,13 +197,24 @@ cursor: pointer;
     /* background-color: #00FF41; */
     width: 50%;
 }
-
+.social{ 
+    justify-content: flex-start;
+    gap:10px;
+}
 .inner .personal-img{ 
     width: 50%;
     /* background-color: red; */
+
 }
 
 
+.social img{ 
+    width: 3rem;
+    cursor: pointer;
+    &:hover{
+        filter: grayscale(10);
+    }
+}
 /* media Queries  */
 @media screen  and (max-width: 768px){
     #info, #contact, #home, #portfolio, #services{ 
