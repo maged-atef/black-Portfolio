@@ -1,0 +1,133 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .leak-text {
+      position: relative;
+      font-size: 64px;
+      font-weight: bold;
+      color: white;
+      font-family: sans-serif;
+      cursor: pointer;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .leak-text::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      color: red;
+      clip-path: inset(0 0 100% 0); /* hidden initially */
+      transition: clip-path 1s ease;
+      z-index: 2;
+    }
+
+    .leak-text:hover::after {
+      clip-path: inset(0 0 0% 0); /* reveals top to bottom */
+    }
+  </style>
+</head>
+<body>
+  <div class="leak-text" data-text="Paint Leak">Paint Leak</div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gooey Drip Text</title>
+  <style>
+    body {
+      background: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .gooey-container {
+      position: relative;
+      filter: url(#goo);
+    }
+
+    .leak-goo {
+      position: relative;
+      font-size: 64px;
+      font-weight: bold;
+      color: white;
+      font-family: sans-serif;
+      z-index: 1;
+    }
+
+    .leak-goo::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: red;
+      clip-path: inset(0 0 100% 0);
+      z-index: -1;
+      animation: drip 2s forwards;
+      opacity: 0;
+    }
+
+    .leak-goo:hover::after {
+      opacity: 1;
+      animation: drip 2s forwards;
+    }
+
+    @keyframes drip {
+      0% {
+        clip-path: inset(0 0 100% 0);
+      }
+      30% {
+        clip-path: inset(0 0 60% 0);
+      }
+      50% {
+        clip-path: inset(0 0 40% 0);
+      }
+      70% {
+        clip-path: inset(0 0 20% 0);
+      }
+      100% {
+        clip-path: inset(0 0 0% 0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="gooey-container">
+    <div class="leak-goo" data-text="Gooey Text">Gooey Text</div>
+  </div>
+
+  <!-- SVG Filter for Gooey Effect -->
+  <svg width="0" height="0">
+    <filter id="goo">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur" />
+      <feColorMatrix in="blur" mode="matrix" 
+        values="
+           1 0 0 0 0
+           0 1 0 0 0
+           0 0 1 0 0
+           0 0 0 20 -10" result="goo" />
+      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+    </filter>
+  </svg>
+</body>
+</html>

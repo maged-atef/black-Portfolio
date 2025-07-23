@@ -1,0 +1,223 @@
+/* Reset CSS start*/
+*,
+::after,
+::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Reset CSS end*/
+/* ********************************************************** */
+
+/* Utility Classes start */
+:root {
+    --mainTextColor: #00FF41;
+    --backGroundColor: #0D0208;
+    --SecBlackColor: #3D3539;
+    --terBlackColor: #251B21;
+    --whity: #fff;
+
+}
+
+@font-face {
+    font-family: WinkyRough-Bold;
+    src: url(../fonts/WinkyRough-Bold.ttf);
+}
+
+@font-face {
+    font-family: WinkyRough-Regular;
+    src: url(../fonts/WinkyRough-Regular.ttf);
+}
+
+@font-face {
+    font-family: WinkyRough-SemiBold;
+    src: url(../fonts/WinkyRough-SemiBold.ttf);
+}
+
+.text-green{
+    color: var(--mainTextColor);
+}
+
+.text-black{
+    color: var(--backGroundColor);
+}
+
+li{
+    list-style: none;
+}
+.icon-return{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+/* Utility Classes end */
+
+/* ********************************************************** */
+
+
+/* Body start */
+body {
+    background-color: var(--backGroundColor);
+
+}
+
+body .nav {
+    background-color: var(--terBlackColor);
+    padding: 0.3rem 0;
+}
+
+body .nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.3rem;
+    list-style: none;
+
+
+}
+
+body .nav a {
+    color: var(--whity);
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: "WinkyRough-SemiBold";
+    transition: all 0.5s ease-in-out;
+    margin: 0 auto;
+
+
+
+}
+
+
+#leakG{
+    color: var(--whity);
+    cursor: pointer;
+    transition: color 0.7s ease-out;
+}
+#leakG:hover{
+    color: var(--mainTextColor);
+    scale: 1.1;
+
+}
+/* Body end */
+
+/* text Leaking start */
+.leak{ 
+    position: relative;
+}
+
+#logo{
+    width: 10%;
+    height: 2rem;
+}
+#info, #contact, #home, #portfolio, #services{ 
+    width: 50%;
+   
+    background-color: var(--whity);
+    border-radius: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 1rem;
+    /* text-align: center; */
+    padding: 1rem;
+    display: none;
+   
+}
+.colors{
+    display: none;
+    color: white;
+    position: absolute;
+    left: 50%;
+   
+    background-color: white;
+    /* width: 50%; */
+    padding: 0.5rem;
+    top:10%;
+ 
+    border-radius: 1rem;
+  
+}
+.colors span{
+cursor: pointer;
+   
+    width: 2rem;
+    height: 2rem;
+    border-radius: 20px; 
+    display: inline-block;
+    
+}
+.colors .green{
+    background-color: var(--mainTextColor);
+}
+.colors .orange{
+    background-color:  orange;
+}
+.colors .yellow{
+    background-color:yellow;
+}
+.colors .red{
+    background-color: red;
+}
+.leak::after{
+    content: attr(data-text);
+    color: var(--mainTextColor);
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: "WinkyRough-SemiBold";
+    clip-path: inset( 0 0 100% 0 );
+    z-index: 2;
+    transition: clip-path 0.6s ease-in-out;
+   
+}
+.leak:hover::after{ 
+    clip-path: inset(0 0 0% 0 );
+    
+   
+}
+/* text leaking end  */
+/* ********************************************************** */
+#info{ 
+   
+    
+}
+.inner{ 
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inner .details{ 
+    /* background-color: #00FF41; */
+    width: 50%;
+}
+
+.inner .personal-img{ 
+    width: 50%;
+    /* background-color: red; */
+}
+
+
+/* media Queries  */
+@media screen  and (max-width: 768px){
+    #info, #contact, #home, #portfolio, #services{ 
+    width: 90%;
+
+    background-color: var(--whity);
+    border-radius: 1rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 1rem;
+    /* text-align: center; */
+    padding: 1rem;
+    display: none;
+   
+}
+}
