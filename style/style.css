@@ -181,10 +181,7 @@ cursor: pointer;
 }
 /* text leaking end  */
 /* ********************************************************** */
-#info{ 
-   
-    
-}
+
 .inner{ 
     display: flex;
     justify-content: space-between;
@@ -194,16 +191,18 @@ cursor: pointer;
 }
 
 .inner .details{ 
-    /* background-color: #00FF41; */
+ 
     width: 50%;
 }
 .social{ 
     justify-content: flex-start;
     gap:10px;
 }
+
+
 .inner .personal-img{ 
     width: 50%;
-    /* background-color: red; */
+
 
 }
 
