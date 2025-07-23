@@ -50,6 +50,7 @@ li{
     position: absolute;
     right: 1rem;
     top: 1rem;
+    font-size: 2rem;
 }
 /* Utility Classes end */
 
@@ -59,6 +60,7 @@ li{
 /* Body start */
 body {
     background-color: var(--backGroundColor);
+    font-family: WinkyRough-Regular;
 
 }
 
@@ -181,7 +183,11 @@ cursor: pointer;
 }
 /* text leaking end  */
 /* ********************************************************** */
-
+.cont{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .inner{ 
     display: flex;
     justify-content: space-between;
@@ -197,6 +203,7 @@ cursor: pointer;
 .social{ 
     justify-content: flex-start;
     gap:10px;
+  
 }
 
 
@@ -210,6 +217,7 @@ cursor: pointer;
 .social img{ 
     width: 3rem;
     cursor: pointer;
+      transition:filter  0.5s ease-in-out;
     &:hover{
         filter: grayscale(10);
     }
